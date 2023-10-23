@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <section><!--Primer ejemplo sin formatos de video   -->
+      <video src="./videoplayback.mp4#t=10,30" controls preload="auto"><!--Tiene dos Etiquetas para agregar elementos al video 
+      controls: Agrega los botones para manipular el video 
+      preload: renderiza el video antes de que cargue la pagina
+      ./videoplayback.mp4#t10,60: Darle instrucciones al video donde inicia y termina --> 
+      </video>
+    </section>
+    <section><!--Segundo ejemplo sin formatos de video -->
+      <video >
+        <source src="/claseVideo/videoplayback.mp4"> <!-- Selecciona el primer formato que entienda el navegador-->
+        <source src="/claseVideo/videoplayback.mp3">
+      </video>
+    </section>
+
+  </main>
+</body>
+</html>
