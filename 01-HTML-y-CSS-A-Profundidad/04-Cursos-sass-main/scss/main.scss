@@ -1,0 +1,175 @@
+// top-level statements
+  // - Imports
+  // - Definicion de Un Mixin
+  // - Definicion de una Funcion 
+  // : Modulos 
+
+// Universal statements 
+  // - Variables, estructuradas de control y las reglas @error, @warn y @debug
+  // - Declaraciones CSS: Reglas de estilo, At-rules Mixins
+
+// Tipos de variables.
+//  Las variavles se declaran con el simbolo de $
+//  Ej $primery-color: blue
+
+$primary-color:#FFEFE7;
+$secundary-color:#f8cbb2;
+$tertiary-color:#BABD8D;
+$primary-text-color:#7C6A0A;
+$quaternion-color:#FA9500;
+$font-stackl: 'IBM Plex Sans' , sans-serif; 
+$paragrap-size: 1.5rem;
+
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: $primary-color;
+    font-family: $font-stackl;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height:100px;
+  color: $primary-text-color;
+  p{
+    font-size: 1.5em;
+    padding-left: 45px;
+  }
+  .icons {
+    display: flex;
+    gap: 15px;
+    padding-right: 30px;
+    button {
+      background: none;
+      border: none;
+    }
+  }
+}
+
+article {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  color: $primary-text-color;  
+  padding: 0 45px 0 50px ;
+  .impact-section{
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 25px;
+  }
+  h1{
+    margin: 0px;
+    font-size: 3em;
+  }
+  p{
+    font-size: $paragrap-size;
+  }
+  button{
+    width: 12vw;
+    padding: 20px;
+    background: $quaternion-color;
+    border-style: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 1em;
+  }
+    img{
+      width: 25vw;
+      border-radius: 19px;
+      margin-top: 50px;
+    }
+}
+
+// Seccion de Porductos
+.product-section {
+  width: auto;
+  height: auto;
+  background-color: $primary-color;
+  padding: 60px;
+  h2{
+    color: $primary-text-color;
+    font-size: 2em;
+  }
+  .healthcare{
+    padding-bottom: 60px;
+    h2{
+      font-weight: 300;
+      padding-bottom: 60px;
+    }
+    .card-section{
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: space-around;
+      row-gap: 80px;
+      flex-wrap: wrap;
+      .product-cart{
+        width: 14vw;
+        height: auto;
+        background-color: $secundary-color;
+        align-items: center;
+        color:$primary-text-color;
+        padding: 20px;
+        border-radius: 10px;
+        .icon{
+          width: 100;
+          display: flex;
+          justify-content: end;
+          padding-bottom:12px;
+          svg{
+            width: 30px;
+            height: 30px;
+            path {
+              stroke: currentColor;
+              color: #7C6A0A;
+            }
+          }
+        }
+        .product-image{
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            width: 16vw;
+            height: 30vh;
+            object-fit:cover;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+  .furniture{
+    @extend .healthcare;
+    .card-section{
+      .product-cart{
+        background-color: $tertiary-color;
+        color: white;
+      }
+      .icon{
+        width: 100;
+        display: flex;
+        justify-content: end;
+        padding-bottom:12px;
+        svg path{
+          stroke: currentColor;
+          color: white;    
+        }
+      }
+    }
+   
+
+  }
+}
+
+footer{
+ background-color: $quaternion-color ;
+ width: 100%;
+ height: 250px;
+}
