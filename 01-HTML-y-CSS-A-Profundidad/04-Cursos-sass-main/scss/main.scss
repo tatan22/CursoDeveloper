@@ -18,46 +18,58 @@ $tertiary-color:#BABD8D;
 $primary-text-color:#7C6A0A;
 $quaternion-color:#FA9500;
 $font-stackl: 'IBM Plex Sans' , sans-serif; 
-$paragrap-size: 1.5rem;
+$paragraph-size: 1.5rem;
+
+// @mixin flexCenter($direction:null, $content:null, $alingn:null)
+@mixin flexCenter($direction, $content, $alingn){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $alingn;
+}
+@mixin buttonStyle {
+  button {
+    background: none;
+    border-style: none;
+
+  }
+}
 
 body{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     background-color: $primary-color;
+    // background-color: blue;
     font-family: $font-stackl;
 }
 
 nav{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height:100px;
+  width: auto;
+  @include flexCenter(row, space-between, center);
   color: $primary-text-color;
+  padding: 15px;
   p{
-    font-size: 1.5em;
-    padding-left: 45px;
+    font-size: $paragraph-size;
+		padding-left: 30px;
   }
   .icons {
     display: flex;
     gap: 15px;
     padding-right: 30px;
-    button {
-      background: none;
-      border: none;
-    }
+    @include buttonStyle;
   }
 }
 
 article {
   width: auto;
-  display: flex;
-  justify-content: space-between;
   color: $primary-text-color;  
-  padding: 0 45px 0 50px ;
+  @include flexCenter(row, space-between, center );
+  padding-left: 45px;
+	padding-right: 45px;
+	padding-top: 70px;
   .impact-section{
-    display: flex;
-    flex-direction: column;
+    @include flexCenter(column, space-evenly, flex-start );
     padding-top: 50px;
     gap: 25px;
   }
@@ -66,8 +78,9 @@ article {
     font-size: 3em;
   }
   p{
-    font-size: $paragrap-size;
+    font-size: $paragraph-size;
   }
+  @include buttonStyle;
   button{
     width: 12vw;
     padding: 20px;
@@ -76,6 +89,9 @@ article {
     border-radius: 35px;
     color: white;
     font-size: 1em;
+    &:hover{
+      transform: scale(1.1);
+    }
   }
     img{
       width: 25vw;
@@ -83,12 +99,10 @@ article {
       margin-top: 50px;
     }
 }
-
 // Seccion de Porductos
 .product-section {
   width: auto;
   height: auto;
-  background-color: $primary-color;
   padding: 60px;
   h2{
     color: $primary-text-color;
@@ -100,51 +114,46 @@ article {
       font-weight: 300;
       padding-bottom: 60px;
     }
-    .card-section{
-      width: auto;
-      height: auto;
-      display: flex;
-      justify-content: space-around;
-      row-gap: 80px;
-      flex-wrap: wrap;
+      .card-section{
+        width: auto;
+        height: auto;
+        @include flexCenter(row,space-evenly, center );
+        flex-wrap: wrap;
+        column-gap: 200px;
+        row-gap: 80px;
+      }
       .product-cart{
         width: 14vw;
-        height: auto;
+        height: 45vh;
         background-color: $secundary-color;
-        align-items: center;
         color:$primary-text-color;
         padding: 20px;
         border-radius: 10px;
         .icon{
           width: 100;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
           padding-bottom:12px;
           svg{
             width: 30px;
             height: 30px;
-            path {
-              stroke: currentColor;
-              color: #7C6A0A;
+          }
+        }
+          .product-image{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+              width: 12vw;
+              height: 30vh;
+              object-fit:cover;
+              border-radius: 8px;
             }
           }
         }
-        .product-image{
-          width: 100%;
-          height: auto;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          img{
-            width: 16vw;
-            height: 30vh;
-            object-fit:cover;
-            border-radius: 8px;
-          }
-        }
-      }
     }
-  }
   .furniture{
     @extend .healthcare;
     .card-section{
@@ -157,19 +166,95 @@ article {
         display: flex;
         justify-content: end;
         padding-bottom:12px;
-        svg path{
-          stroke: currentColor;
-          color: white;    
-        }
       }
     }
-   
+  }
+}
 
+
+.about-us {
+  padding-bottom: 60px;
+  
+  h2 {
+    color: $primary-text-color;
+    font-weight: bold;
+    padding-bottom: 60px;
+    padding-left: 60px
+    
+  }
+  .mission-section {
+    @include flexCenter(row, space-evenly, center);
+    .earth {
+      width: 30vw;
+      display: flex;
+      gap: 40px;
+      color:  $primary-text-color;
+      img {
+        object-fit: contain;
+        
+      }
+      p {
+        text-align: center;
+        font-size: $paragraph-size; // Asegúrate de que $paragrap-size esté definido o usa un valor numérico
+      }
+    }
+  }
+  .innovation {
+    @extend .earth
+  }
+}
+
+.gallery {
+  h2{
+    color: $primary-text-color;
+		font-weight: bold;
+		padding-bottom: 60px;
+    padding-left: 60px
+	}
+  .gallery-images{
+    @include flexCenter(row, space-between, center);
+    padding-bottom: 60px;
+    padding-left: 60px;
+    img{
+      width: 28vw;
+      height: 20vh;
+      object-fit: cover;
+      object-position: 5px 35%;
+      border-radius: 16px;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  }
+} 
+
+.location {
+  color: #E86424;
+  padding-bottom: 60px;
+  padding-left: 60px;
+  h2{
+    padding: 60px 0;
+  }
+  .map {
+    @include flexCenter(row, center, center);
+    padding-bottom:50px ;
+  }
+
+  p,h3{
+    font-size: $paragraph-size;
+    padding-left: 60px; 
   }
 }
 
 footer{
- background-color: $quaternion-color ;
- width: 100%;
- height: 250px;
+background-color: $quaternion-color ;
+width: 100%;
+height: auto;
+padding: 40px;
+color: white;
+.social-media{
+  @include flexCenter(row, center, center);
+  gap: 40px;
+  padding-bottom: 60px;
+}
 }
