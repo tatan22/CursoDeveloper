@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding:0;
+}
+body {
+  background: #575A5E;
+}
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.container {
+  width: 350px;
+  min-width: 150px;
+  height: 350px;
+  min-height: 150px;
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "card-1 card-2"
+    "card-1 card-3";
+  gap: 8px;
+  margin-bottom: 30px;
+}
+.item-1 {
+  grid-area: card-1;
+  background-image: url("https://i.pinimg.com/564x/5b/30/c7/5b30c7fdfed7aa1e71a2dd3ca8a19dfc.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: 3px 5px 8px #211e1e;
+}
+.item-2 {
+  grid-area: card-2;
+  border-radius: 10px;
+  background-image: url("https://i.pinimg.com/564x/6c/58/e0/6c58e02ae7e6b9982d73098d30f600f5.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: 3px 5px 8px #211e1e;
+}
+.item-3 {
+  grid-area: card-3;
+  background: url("https://i.pinimg.com/564x/fc/3e/cc/fc3ecc8f4b7d72df9aadb3a47c0a27a6.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 3px 5px 8px #211e1e;
+}
+.container-2 {
+  width: 350px;
+  min-width: 150px;
+  height: 350px;
+  min-height:150px;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  grid-template-areas: 
+    "tarjeta-1 tarjeta-2"
+    "tarjeta-3 tarjeta-3";
+  gap: 8px 8px;
+}
+.card-1 {
+  grid-area: tarjeta-1;
+  background: url("https://i.pinimg.com/564x/56/91/21/569121fd76a03237d9fefa44ec1b37a9.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 3px 5px 8px #211e1e;
+}
+.card-2 {
+  grid-area: tarjeta-2;
+  background-image: url("https://i.pinimg.com/564x/5a/07/7d/5a077db46c9279b533626854415c49cc.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 3px 5px 8px #211e1e;
+}
+.card-3 {
+  grid-area: tarjeta-3;
+  background-image: url("https://s1.1zoom.me/big0/301/Sky_Boats_Sunrises_and_sunsets_Sun_Beach_547733_1280x851.jpg");
+   background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 3px 5px 8px #211e1e;
+}
